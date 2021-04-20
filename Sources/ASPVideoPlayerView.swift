@@ -284,7 +284,7 @@ import AVFoundation
     // MARK: - Private Variables and Constants -
 
     private let videoPlayerLayer: AVPlayerLayer = AVPlayerLayer()
-    private let player = AVPlayer()
+    public let player = AVPlayer()  
 
     private var animationForwarder: AnimationForwarder!
 
