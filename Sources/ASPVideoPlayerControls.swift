@@ -480,11 +480,13 @@ open class ASPBasicControls: UIView, VideoPlayerControls, VideoPlayerSeekControl
         
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|-[currentTimeLabel(==lengthLabel)]-10-[progressSlider]-10-[lengthLabel]-[resizeButton]", options: [], metrics: nil, views: viewsDictionary))
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[lengthLabel]-(8@750)-|", options: [], metrics: nil, views: viewsDictionary))
+
+        let bottomInsets = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0) + 20
         
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[resizeButton(==24)]", options: [], metrics: nil, views: viewsDictionary))
-        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[progressSlider(==40)]-6-|", options: [], metrics: nil, views: viewsDictionary))
-        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[currentTimeLabel(==40)]-3-|", options: [], metrics: nil, views: viewsDictionary))
-        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[lengthLabel(==40)]-3-|", options: [], metrics: nil, views: viewsDictionary))
+        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[progressSlider(==40)]-\(bottomInsets + 3)-|", options: [], metrics: nil, views: viewsDictionary))
+        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[currentTimeLabel(==40)]-\(bottomInsets)-|", options: [], metrics: nil, views: viewsDictionary))
+        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[lengthLabel(==40)]-\(bottomInsets)-|", options: [], metrics: nil, views: viewsDictionary))
 
         addConstraints(constraintsArray)
     }
