@@ -397,11 +397,12 @@ import AVFoundation
                                               "videoPlayerControls":videoPlayerControls as Any]
 
         var constraintsArray = [NSLayoutConstraint]()
-
+        let bottomInsets = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0) + 50
+        
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|[videoPlayerView]|", options: [], metrics: nil, views: viewsDictionary))
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[videoPlayerView]|", options: [], metrics: nil, views: viewsDictionary))
         constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|[videoPlayerControls]|", options: [], metrics: nil, views: viewsDictionary))
-        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[videoPlayerControls]|", options: [], metrics: nil, views: viewsDictionary))
+        constraintsArray.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[videoPlayerControls]-\(bottomInsets)-|", options: [], metrics: nil, views: viewsDictionary))
 
         addConstraints(constraintsArray)
     }
