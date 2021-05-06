@@ -73,7 +73,7 @@ import AVFoundation
 
     // MARK: - Private Variables and Constants -
 
-    fileprivate var videoPlayerView: ASPVideoPlayerView!
+    public var videoPlayerView: ASPVideoPlayerView!
 
     /**
      Work item used to hide the controls with a delay.
